@@ -1,0 +1,102 @@
+.JogoDoGalo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.disabled {
+  pointer-events: none;
+}
+
+.board {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  max-width: 300px;
+  padding: 5px;
+  border: 2px solid #000;
+}
+
+.cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  flex-basis: calc(33.33% - 15px);
+  margin: 5px;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+.cell::before {
+  content: "";
+  padding-bottom: 100%;
+}
+
+.cell-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 24px;
+  box-sizing: border-box;
+  text-align: center;
+  user-select: none;
+}
+
+.cell.X {
+  color: #f00;
+}
+
+.cell.O {
+  color: #00f;
+}
+
+.cell:hover {
+  background-color: #eee;
+}
+
+.finished .cell:hover {
+  background-color: #fff;
+}
+
+.finished .cell-content.X,
+.finished .cell-content.O {
+  color: inherit;
+}
+
+.board.finished {
+  position: relative;
+  pointer-events: none;
+}
+
+.Mensagem-Vencedor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.finished .Mensagem-Vencedor {
+  display: flex;
+}
+
+.finished .Mensagem-Vencedor-Texto {
+  font-size: 24px;
+  font-weight: bold;
+}
